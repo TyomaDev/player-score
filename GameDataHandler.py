@@ -22,11 +22,11 @@ def get_sportsman_scores(sportsmen_list: list) -> list:
     return data
 
 
-def get_average_player_score(path: str) -> list:
+def get_average_player_score(path: str) -> dict:
     sportsmen_list = get_file_data(path)
     sportsman_scores = get_sportsman_scores(sportsmen_list)
 
-    data = []
+    data = {}
     for sportsman in sportsman_scores:
         name = ''
         steps = []
@@ -42,7 +42,7 @@ def get_average_player_score(path: str) -> list:
                 count += 1
 
         average_score = round(scores / count, 2)
-        data.append({name: average_score})
+        data[name] = average_score
 
     return data
 
